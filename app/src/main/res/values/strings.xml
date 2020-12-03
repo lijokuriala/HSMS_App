@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Home Security Monitoring</string>
+    <string name="status_button_text">Update Status</string>
+    <string name="getReferencePath">/table_SensorStateData</string>
+    <string name="getInstanceUrl">https://homesecuritymonitoringsystem.firebaseio.com/</string>
+    <string name="channel_name">HSMS_CHANNEL</string>
+    <string name="channel_description">HSMS notification channel</string>
+    <string name="alert_string">ALERT</string>
+</resources>

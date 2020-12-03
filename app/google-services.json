@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "376026660486",
+    "firebase_url": "https://homesecuritymonitoringsystem.firebaseio.com",
+    "project_id": "homesecuritymonitoringsystem",
+    "storage_bucket": "homesecuritymonitoringsystem.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:376026660486:android:773824b6c86a5897171b07",
+        "android_client_info": {
+          "package_name": "com.ahdproject.homesecuritymonitoring"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "376026660486-3rbmbskjeiio5jc3fs1b32ubrrof65ic.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ahdproject.homesecuritymonitoring",
+            "certificate_hash": "3e40385461542d1675cbc69a6683f00855a6e05c"
+          }
+        },
+        {
+          "client_id": "376026660486-53s8d01t159keimt7bin33im76ckie6v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBh_9KUdekadHKf1pM_M0aslqGDMkYBwas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "376026660486-53s8d01t159keimt7bin33im76ckie6v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
