@@ -57,24 +57,35 @@ public class MainActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance(getString(R.string.getInstanceUrl));
         DatabaseReference myRef = database.getReference(getString(R.string.getReferencePath));
 
+        /*
+        Below is the format of the HashMap in table_SensorStateData
+        -MNxpY8Bnb8SE57Fcqtt                    // Key of the record
+        Alert_Notify: "N"                       // Flag to determine if notification should be created
+        Sensor: "Test Garage Door"              // Sensor name
+        State: "Open"                           // Sensor state
+        Time: "2020-Dec-07 09:33:36 AM CST"     // Time the sensor state occurred
+        */
+
+
         // Read from the database
         // Get last set of data
         Query lastEntry = myRef.limitToLast(1);
         lastEntry.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot snap : snapshot.getChildren()) {
+                for(DataSnapshot snapshot_record : snapshot.getChildren()) {
                     // Get values
-                    sensor = snap.child("Sensor").getValue(String.class);
-                    sensor_time = snap.child("Time").getValue(String.class);
-                    sensor_state = snap.child("State").getValue(String.class);
+                    sensor = snapshot_record.child("Sensor").getValue(String.class);
+                    sensor_time = snapshot_record.child("Time").getValue(String.class);
+                    sensor_state = snapshot_record.child("State").getValue(String.class);
 
                     // Show android notification if ALERT
                     if(sensor_state.equalsIgnoreCase("ALERT")) {
                         state_formatted = "LEFT OPENED since ";
 
-                        // Generate notification if app not open
-                        if(!isAppForground(MainActivity.this))
+                        // Generate notification if app not open and alert_notify flag is Y
+                        if(!isAppForground(MainActivity.this)
+                                && snapshot_record.child("Alert_Notify").getValue(String.class).equals("Y"))
                             addNotification();
                     }
                     if(sensor_state.toUpperCase().startsWith("OPEN"))
